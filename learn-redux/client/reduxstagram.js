@@ -25,8 +25,8 @@ Raven.config(sentry_url, {
   }
 }).install();
 
-Raven.caputureMessage('Something bad happened!');
-Raven.showReportDialog()
+// Raven.caputureMessage('Something bad happened!');
+// Raven.showReportDialog()
 
 
 const router = (
