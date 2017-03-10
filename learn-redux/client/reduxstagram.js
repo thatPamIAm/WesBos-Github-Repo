@@ -13,7 +13,21 @@ import PhotoGrid from './components/PhotoGrid';
 // import react router deps
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import store, { history } from './store'
+import store, { history } from './store';
+
+import Raven from 'raven-js';
+import { sentry_url, logException } from './data/config';
+
+Raven.config(sentry_url, {
+  tags: {
+  git_commit: 'asdfsadfsdfsdf',
+  userLevel: 'editor'
+  }
+}).install();
+
+Raven.caputureMessage('Something bad happened!');
+Raven.showReportDialog()
+
 
 const router = (
   <Provider store={store}>
